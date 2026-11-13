@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marinade Feedback — Retreat 2026/06</title>
+<style>
+:root{--bg:#F1F6F4;--card:#fff;--ink:#2A4A49;--sub:#3F7A68;--line:#CFE5DE;--field:#F1F6F4;--ph:#7FB3A3;--star:#C0D8D0;--starOn:#3E8E6F;--hero:#2A4A49;--tile:#E1EEEA;--selbg:#E3F1EC;--selbd:#3F7A68;--heroText:#D6E6E1;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:675px;margin:0 auto;padding:16px 16px 48px}
+.hero{background:var(--hero);color:#fff;border-radius:18px;text-align:center;padding:24px 20px 26px;margin-bottom:18px}
+.pill{display:inline-block;background:rgba(255,255,255,.16);border-radius:999px;padding:4px 14px;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{font-size:clamp(20px,5vw,24px);font-weight:600;margin:12px 0 6px;line-height:1.2}
+.hero p{margin:0;color:var(--heroText);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px clamp(16px,4vw,32px) 26px;margin-bottom:18px}
+.head{display:flex;align-items:center;gap:12px}
+.tile{width:36px;height:36px;border-radius:10px;background:var(--tile);display:grid;place-items:center;font-size:20px;flex:none}
+.head h2{font-size:19px;font-weight:600;margin:0;line-height:1.2}
+.subt{color:var(--sub);margin:4px 0 6px;font-size:13px}
+.q{text-align:center;margin-top:22px}
+.q .lab{display:block;font-weight:600;font-size:15px;margin-bottom:8px}
+.opt{color:var(--sub);font-weight:400;font-size:12px;margin-left:6px}
+.stars{display:flex;flex-direction:row-reverse;justify-content:center;gap:4px}
+.stars input,.chips input{position:absolute;opacity:0;pointer-events:none}
+.stars label{font-size:30px;line-height:1;cursor:pointer;color:var(--star);padding:1px 3px}
+.stars label:hover,.stars label:hover~label,.stars input:checked~label{color:var(--starOn)}
+.stars input:focus-visible+label{outline:3px solid var(--sub);border-radius:8px}
+.ends{display:flex;justify-content:space-between;max-width:200px;margin:4px auto 0;color:var(--sub);font-size:13px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.chips label{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:84px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--sub);cursor:pointer;background:var(--card);font-size:14px}
+.chips .e{font-size:22px;line-height:1.1}
+.chips input:checked+label{border-color:var(--selbd);background:var(--selbg);color:var(--ink)}
+.chips input:focus-visible+label{outline:3px solid var(--sub)}
+.txt{text-align:left}
+.txt .lab{font-size:15px}
+textarea{width:100%;min-height:72px;font:inherit;color:#2E7556;caret-color:#2E7556;background:var(--field);border:1px solid var(--line);border-radius:10px;padding:10px 14px;resize:vertical}
+textarea::placeholder{color:var(--ph)}
+textarea:focus{outline:3px solid var(--sub);outline-offset:0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0 16px}
+.ai{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:600}
+.ai+.subt{margin-bottom:0}
+button{display:block;width:100%;margin:0;font-weight:600;font-size:17px;font-family:inherit;background:var(--hero);color:#fff;border:0;border-radius:14px;padding:16px 24px;cursor:pointer}
+button:focus-visible{outline:3px solid var(--starOn);outline-offset:3px}
+#thanks{display:none;text-align:center}
+#thanks .big{font-size:40px}#thanks h2{font-size:24px;margin:6px 0}#thanks p{color:var(--sub);margin:0}
+.done form,.done .hero{display:none}.done #thanks{display:block}
+</style>
+</head>
+<body>
+<main id="app">
+<header class="hero">
+<span class="pill">June 15–18, 2026</span>
+<h1>Marinade Feedback — Retreat 2026/06 🧴</h1>
+<p>Share your honest thoughts and help us make it better for everyone!</p>
+</header>
+<form id="f"></form>
+<div id="thanks" class="card"><div class="big">🙌</div><h2>Thank you!</h2><p>Your feedback has been saved. It really helps us make the next retreat better.</p></div>
+</main>
+<script>
+var S=[
+{e:'🏄',t:'Overall experience',s:'Big-picture vibes first',q:[
+['star','How would you rate the retreat overall?',['Not great','Amazing']],
+['one','Was the retreat the right length?',[['⏩','Too short'],['👌','Just right'],['😴','Too long']]],
+['one','How was the balance between structured sessions and free time?',[['📋','Too many sessions'],['⚖️','Good balance'],['🏖️','Too much free time']]]]},
+{e:'📣',t:'Monday: Reflection & Learning',s:'June 15',q:[['star','Opening & Welcome'],['star','Q2 Rocks'],['star','Product & Engineering']],
+ai:{t:'🤖 AI Knowledge Share Session',s:'Your experience with the session',q:[
+['text','How did you enjoy sharing your AI experiences with the team?','What worked well, what felt awkward…'],
+['text','What new things did you learn?','Any tools, tips, or insights that were new to you…'],
+['text','What did you find most interesting, surprising, or useful?','A use case, a tool, a workflow, a perspective that stuck with you…']]},
+after:[['text','Comments on Monday','Anything else about Monday…',1]]},
+{e:'🚀',t:'Hackathon: “Marinate & Launch”',s:'Mon kickoff → Wed demos',q:[
+['star','How would you rate the hackathon overall?'],
+['one','Did you participate in the hackathon?',[['💻','Yes'],['👀','No, just watched demos']]],
+['one','Was there enough time allocated for hackathon work?',[['⏰','Not enough'],['👌','Just right'],['😴','Too much']]],
+['star','How were the hackathon demo presentations on Wednesday?'],
+['text','What would make the hackathon better next time?','Format, time, teams, prizes…']]},
+{e:'🪞',t:'Wednesday: Reflection',s:'June 17',q:[['star','Q3 Brainstorm'],['star','Team activity — Padel'],['star','Closing dinner'],['text','Comments on Wednesday','Anything else about Wednesday…',1]]},
+{e:'🗺️',t:'Thursday: Full Day Trip',s:'June 18',q:[
+['one','Did you join the trip?',[['✅','Yes'],['❌','No']]],
+['one','Do you enjoy team activities of this type?',[['🙌','Yes'],['😐','Not really']]],
+['text','Comments on Thursday','Anything else about the trip…',1]]},
+{e:'🎯',t:'Team activities',s:'Help us plan better next time',q:[
+['many','What kind of team activities would you prefer? (select all that apply)',[['','Sports / physical (bowling, hiking, escape room…)'],['','Food & drinks (dinner out, cooking, wine tasting…)'],['','Creative (workshop, art, music…)'],['','Chill / social (board games, pub quiz, karaoke…)']]],
+['text','Any specific activity ideas for next time?','Your ideas…',1]]},
+{e:'🏢',t:'Logistics & venue',s:'The practical stuff',q:[
+['star','How were the meeting rooms and spaces?'],['star','How was the catering / food throughout the week?'],['star','Was communication about the schedule and logistics clear?'],
+['text','Any logistics feedback?','Anything we should fix…',1]]},
+{e:'💡',t:'Final thoughts',s:'The stuff that matters most',q:[
+['text','What was the single best moment of the retreat for you?','That one thing you’ll remember…'],
+['text','What’s one thing we should definitely change for the next retreat?','Be honest — this is how we get better!'],
+['text','Any topics or sessions you’d like to see at the next retreat?','Workshops, discussions, activities…'],
+['text','Anything else on your mind?','Shoutouts, complaints, random thoughts — all welcome 🧴',1]]}
+];
+var n=0;
+function Q(q){n++;var id='q'+n,r,o=q[0]=='text'&&q[3]?'<span class="opt">(optional)</span>':'';
+if(q[0]=='star'){r='<div class="stars" role="radiogroup" aria-label="'+q[1]+'">';for(var i=5;i>0;i--)r+='<input type="radio" name="'+id+'" id="'+id+'s'+i+'" value="'+i+'"><label for="'+id+'s'+i+'" title="'+i+' of 5">★</label>';r+='</div>';
+if(q[2])r+='<div class="ends"><span>'+q[2][0]+'</span><span>'+q[2][1]+'</span></div>';return '<div class="q"><span class="lab">'+q[1]+'</span>'+r+'</div>'}
+if(q[0]=='text')return '<div class="q txt"><label class="lab" for="'+id+'">'+q[1]+o+'</label><textarea id="'+id+'" name="'+id+'" placeholder="'+q[2]+'"></textarea></div>';
+var ty=q[0]=='one'?'radio':'checkbox';r='<div class="chips">';
+q[2].forEach(function(a,i){r+='<input type="'+ty+'" name="'+id+'" id="'+id+'o'+i+'" value="'+a[1]+'"><label for="'+id+'o'+i+'">'+(a[0]?'<span class="e">'+a[0]+'</span>':'')+a[1]+'</label>'});
+return '<div class="q"><span class="lab">'+q[1]+'</span>'+r+'</div></div>'}
+var h='';
+S.forEach(function(s){h+='<section class="card"><div class="head"><div class="tile">'+s.e+'</div><h2>'+s.t+'</h2></div><p class="subt">'+s.s+'</p>';
+s.q.forEach(function(q){h+=Q(q)});
+if(s.ai){h+='<hr><div class="ai">'+s.ai.t+'</div><p class="subt">'+s.ai.s+'</p>';s.ai.q.forEach(function(q){h+=Q(q)});h+='<hr>';s.after.forEach(function(q){h+=Q(q)})}
+h+='</section>'});
+h+='<button type="submit">Submit feedback</button>';
+var f=document.getElementById('f');f.innerHTML=h;
+f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('app').className='done';window.scrollTo(0,0)});
+</script>
+</body>
+</html>
